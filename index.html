@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.ball{
+			height: 150px;
+			width: 150px;
+			background: red;
+			border-radius: 50%;
+			position: absolute;
+			display: none;
+		}
+		.ball1{
+			height: 150px;
+			width: 150px;
+			background: blue;
+			border-radius: 50%;
+			position: absolute;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<h1>Очки: <span class="score"></span></h1>
+	<button class="startbtn">start</button>
+	<!--red balls-->
+	<div class="ball" style="margin-left: 10%; margin-top: 10%;"></div>
+	<div class="ball" style="margin-left: 20%; margin-top: 5%"></div>
+	<div class="ball" style="margin-left: 60%; margin-top: 25%"></div>
+	<div class="ball" style="margin-left: 30%; margin-top: 19%"></div>
+	<div class="ball" style="margin-left: 5%; margin-top: 30%"></div>
+	<div class="ball" style="margin-left: 25%; margin-top: 41%"></div>
+	<div class="ball" style="margin-left: 49%; margin-top: 40%"></div>
+	<div class="ball" style="margin-left: 40%; margin-top: 10%"></div>
+	<div class="ball" style="margin-left: 80%; margin-top: 15%"></div>
+	<div class="ball" style="margin-left: 75%; margin-top: 30%"></div>
+	<!--blue balls-->
+	<div class="ball1" style="margin-left: 20%; margin-top: 15%"></div>
+	<div class="ball1" style="margin-left: 65%; margin-top: 5%"></div>
+	<div class="ball1" style="margin-left: 20%; margin-top: 25%"></div>
+	<div class="ball1" style="margin-left: 10%; margin-top: 20%"></div>
+	<div class="ball1" style="margin-left: 35%; margin-top: 30%"></div>
+	<div class="ball1" style="margin-left: 65%; margin-top: 41%"></div>
+	<div class="ball1" style="margin-left: 79%; margin-top: 40%"></div>
+	<div class="ball1" style="margin-left: 60%; margin-top: 15%"></div>
+	<div class="ball1" style="margin-left: 50%; margin-top: 25%"></div>
+	<div class="ball1" style="margin-left: 85%; margin-top: 30%"></div>
+	
+	<script type="text/javascript">
+		let ball = document.querySelectorAll(".ball")
+		let score = 0
+		let bomb = document.querySelectorAll(".ball1")
+		let start = document.querySelector(".startbtn")
+		start.onclick = function(){
+			for(let index2 = 0; index2<10; index2 = index2 + 1){
+			bomb[index2].style.display = "block"
+			ball[index2].style.display = "block"
+		}
+		for(let index = 0; index<10; index = index + 1){
+			ball[index].onclick = function(){
+				ball[index].style.display = "none"
+				score =score + 1
+				document.querySelector(".score").innerHTML = score
+			}
+		}
+		for(let index = 0; index<10; index = index + 1){
+			bomb[index].onclick = function(){
+				bomb[index].style.display = "none"
+				score =score - 1
+				document.querySelector(".score").innerHTML = score
+			}
+		}
+		setInterval(function(){
+			for(let index1 = 0; index1<10; index1 = index1 + 1){
+				ball[index1].style.display = "none"
+				bomb
+				[index1].style.display = "none"
+			}
+			alert("game over")
+		},3000)
+	}
+	</script>
+</body>
+</html>
